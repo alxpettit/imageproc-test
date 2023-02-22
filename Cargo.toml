@@ -9,3 +9,4 @@ edition = "2021"
 image = "0.24.5"
 imageproc = { version = "0.23.0", features = ["display-window"] }
 rusttype = "0.9.3"
+sdl2 = { version = "0.35", default-features = false, features = ["bundled"] }

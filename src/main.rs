@@ -1,5 +1,7 @@
+mod window;
+
+use window::display_image;
 fn main() {
-    use imageproc::window::display_image;
     use std::env;
     println!("{}", env::var("PWD").unwrap());
 

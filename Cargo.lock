@@ -313,6 +313,7 @@ dependencies = [
  "image",
  "imageproc",
  "rusttype",
+ "sdl2",
 ]
 
 [[package]]
