@@ -44,19 +44,16 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
 
 fn edit_image(handle_image: Res<Display>, mut image_assets: ResMut<Assets<Image>>) {
     if let Some(mut image) = image_assets.get_mut(&handle_image.0) {
-        println!("{:?}", image);
-        // Access image data and modify it
-        // *image = Image::new_fill(
-        //     Extent3d::default(),
-        //     TextureDimension::D2,
-        //     &[10, 0, 0, 0],
-        //     TextureFormat::R16Float,
-        // );
-        // let pixels = &mut image.data;
-        // for (i, pixel) in pixels.iter_mut().enumerate() {
-        //     // Modify pixel values as needed
-        //     *pixel = (i as f32 * (1. / 500.)) as u8;
-        // }
+        let pixels = &mut image.data;
+        for (i, pixel) in pixels.iter_mut().enumerate() {
+            match i % 4 {
+                0 => *pixel = 100,
+                1 => *pixel = 0,
+                2 => *pixel = 100,
+                3 => *pixel = 255, // alpha
+                _ => *pixel = 0,
+            }
+        }
     }
 }
 
