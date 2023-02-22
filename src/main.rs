@@ -3,7 +3,7 @@ mod window;
 use window::display_image;
 
 use bevy::prelude::*;
-use bevy::render::render_resource::Texture;
+use bevy::render::render_resource::{Extent3d, Texture, TextureDimension, TextureFormat};
 use bevy::render::texture::Image;
 
 // #[derive(Resource)]
@@ -44,12 +44,19 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
 
 fn edit_image(handle_image: Res<Display>, mut image_assets: ResMut<Assets<Image>>) {
     if let Some(mut image) = image_assets.get_mut(&handle_image.0) {
+        println!("{:?}", image);
         // Access image data and modify it
-        let pixels = &mut image.data;
-        for (i, pixel) in pixels.iter_mut().enumerate() {
-            // Modify pixel values as needed
-            *pixel = (i as f32 * (1. / 500.)) as u8;
-        }
+        // *image = Image::new_fill(
+        //     Extent3d::default(),
+        //     TextureDimension::D2,
+        //     &[10, 0, 0, 0],
+        //     TextureFormat::R16Float,
+        // );
+        // let pixels = &mut image.data;
+        // for (i, pixel) in pixels.iter_mut().enumerate() {
+        //     // Modify pixel values as needed
+        //     *pixel = (i as f32 * (1. / 500.)) as u8;
+        // }
     }
 }
 
