@@ -229,7 +229,7 @@ fn render_image_to_canvas<I>(
         .create_texture_from_surface(surface)
         .expect("couldn't create texture from surface");
 
-    canvas.set_draw_color(Color::RGB(255, 255, 255));
+    canvas.set_draw_color(Color::RGB(0, 0, 0));
     canvas.clear();
 
     let left = ((window_width - image_width) as f32 / 2f32) as i32;

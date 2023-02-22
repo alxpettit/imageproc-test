@@ -1,17 +1,9 @@
 mod window;
 
 use window::display_image;
-fn main() {
-    use std::env;
-    println!("{}", env::var("PWD").unwrap());
 
-    let image_path = match env::args().nth(1) {
-        Some(path) => path,
-        None => {
-            println!("No image path provided. Using default image.");
-            "wrench.png".to_owned()
-        }
-    };
+fn main() {
+    let image_path = "wrench.png".to_owned();
 
     let image = image::open(&image_path)
         .expect("No image found at provided path")
